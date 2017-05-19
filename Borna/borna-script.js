@@ -1,3 +1,11 @@
-/**
- * Created by h205p2 on 5/18/17.
- */
+function start() {
+    $(document).ready(function({
+        $('#Name').hide();
+});
+}
+
+start();
+
+function enter() {
+
+}
