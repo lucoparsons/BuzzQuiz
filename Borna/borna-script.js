@@ -1,5 +1,5 @@
 function start() {
-    $(document).ready(function({
+    $(document).ready(function() {
         $('#Name').hide();
 });
 }
