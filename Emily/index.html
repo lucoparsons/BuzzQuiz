@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>listview demo</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="javascript.js"></script>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <h1>Page 1</h1>
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign in</a>
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page3" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign up</a>
+    </div>
+</div>
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>Page 2</h1>
+    </div>
+    <div class="ui-field-contain">
+        <label for="username1">Username:</label>
+        <input type="text" class="text" name="name" id="username1" value="" data-mini="true">
+        <label for="password1">Password:</label>
+        <input type="text" class="text" name="name" id="password1" value="" data-mini="true">
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign In</a>
+    </div>
+</div>
+<div data-role="page" id="page3">
+    <div data-role="header">
+        <h1>Page 3</h1>
+    </div>
+    <div class="ui-field-contain">
+        <label for="username2">Create Username:</label>
+        <input type="text" class="text" name="name" id="username2" value="" data-mini="true">
+        <label for="password2">Create Password:</label>
+        <input type="text" class="text" name="name" id="password2" value="" data-mini="true">
+    </div>
+    <div>
+        <label for="select-choice-min" class="select">Sex:</label>
+        <select name="select-choice-min" id="select-choice-min" data-mini="true">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+    <div class="ui-field-contain">
+        <label for="weight">Insert your Weight:</label>
+        <input type="text" class="text" name="name" id="weight" value="" data-mini="true">
+        <label for="height">Insert your Height:</label>
+        <input type="text" class="text" name="name" id="height" value="" data-mini="true">
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
+    </div>
+</div>
+<div data-role="page" id="page4">
+    <div class="text header" id="remainder">Total Amount Remaining Today:</div>
+    <div class="text header" id="goal">Total Daily Goal:</div>
+    <div class="text header" id="intake">Today's Total  Intake:</div>
+    <div class="text" id="water">Water:</div>
+    <div class="text" id="excercise">excercise:</div>
+    <div class="text" id="alcohol">Alcohol:</div>
+</div>
+</body>
+</html>
+</html>
