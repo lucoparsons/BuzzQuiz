@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hidrate</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type='text/javascript' src='luco-script.js'></script>
 </head>
 <body>
+    <div data-role="page" id="page1">
+        <div data-role="header">
+            <h1>Tell Us About YOUUUU</h1>
+        </div>
+
+        <div role="main">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="">
+            <label for="age">Age:</label>
+            <input type="text" name="name" id="age" value="">
+            <label for="weight">Weight:</label>
+            <input type="text" name="name" id="weight" value="">
+            <label for="height">Height:</label>
+            <input type="text" name="name" id="height" value="">
+        </div>
+
+        <div role="main" class="ui-content">
+            <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Submit My Personal Information To Be Used By The Government And For Data Mining</a>
+        </div>
+
+    </div>
+        <div data-role="page" id="page2">
+            <h1>Well then i guess you SUCK</h1>
+            <label>uSUCK</label>
+            <div role="main" class="ui-content">
+                <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">UNSUBMIT</a>
+            </div>
+
+    </div>
+
 
 </body>
 </html>
