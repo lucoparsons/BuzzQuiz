@@ -62,6 +62,9 @@
         <input type="text" class="text" name="name" id="height" value="" data-mini="true">
     </div>
     <div role="main" class="ui-content">
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign Up</a>
+    </div>
+    <div role="main" class="ui-content">
         <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
     </div>
 </div>
@@ -70,8 +73,25 @@
     <div class="text header" id="goal">Total Daily Goal:</div>
     <div class="text header" id="intake">Today's Total  Intake:</div>
     <div class="text" id="water">Water:</div>
-    <div class="text" id="excercise">excercise:</div>
     <div class="text" id="alcohol">Alcohol:</div>
+    <div class="text" id="excercise">Excercise:</div>
+    <div role="main" class="ui-content">
+        <a href="#addintakepage" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Add Intake</a>
+    </div>
+</div>
+<div data-role="page" id="addintakepage">
+    <div data-role="controlgroup" data-type="horizontal">
+        <a href="#" class="ui-btn ui-corner-all">Water
+            <label for="waterintake">Amount (oz):</label>
+            <input type="text" name="name" id="waterintake" value=""></a>
+        <a href="#" class="ui-btn ui-corner-all">Alcohol
+            <label for="alcoholintake">Amount (oz):</label>
+            <input type="text" name="name" id="alcoholintake" value=""></a>
+        <a href="#" class="ui-btn ui-corner-all">Excercise
+            <label for="excersiseintake">Amount (minutes):</label>
+            <input type="text" name="name" id="excersiseintake" value=""></a>
+    </div>
+    <input type="submit" value="Submit Button">
 </div>
 </body>
 </html>
