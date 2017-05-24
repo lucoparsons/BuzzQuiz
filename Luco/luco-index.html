@@ -1,45 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>BuzzQuiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hidrate</title>
+    <title>listview demo</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script type='text/javascript' src='luco-script.js'></script>
+    <script src="luco-script.js"></script>
 </head>
 <body>
-    <div data-role="page" id="page1">
-        <div data-role="header">
-            <h1>Tell Us About YOUUUU</h1>
-        </div>
-
-        <div role="main">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" value="">
-            <label for="age">Age:</label>
-            <input type="text" name="name" id="age" value="">
-            <label for="weight">Weight:</label>
-            <input type="text" name="name" id="weight" value="">
-            <label for="height">Height:</label>
-            <input type="text" name="name" id="height" value="">
-        </div>
-
-        <div role="main" class="ui-content">
-            <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Submit My Personal Information To Be Used By The Government And For Data Mining</a>
-        </div>
-
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <h1>Page 1</h1>
     </div>
-        <div data-role="page" id="page2">
-            <h1>Well then i guess you SUCK</h1>
-            <label>uSUCK</label>
-            <div role="main" class="ui-content">
-                <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">UNSUBMIT</a>
-            </div>
-
+    <div role="main" class="ui-content">
+        <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign in</a>
     </div>
-
-
+    <div role="main" class="ui-content">
+        <a href="#page3" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign up</a>
+    </div>
+</div>
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>Page 2</h1>
+    </div>
+    <div class="ui-field-contain">
+        <label for="username1">Username:</label>
+        <input type="text" class="text" name="name" id="username1" value="" data-mini="true">
+        <label for="password1">Password:</label>
+        <input type="text" class="text" name="name" id="password1" value="" data-mini="true">
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign In</a>
+    </div>
+</div>
+<div data-role="page" id="page3">
+    <div data-role="header">
+        <h1>Page 3</h1>
+    </div>
+    <div class="ui-field-contain">
+        <label for="username2">Create Username:</label>
+        <input type="text" class="text" name="name" id="username2" value="" data-mini="true">
+        <label for="password2">Create Password:</label>
+        <input type="text" class="text" name="name" id="password2" value="" data-mini="true">
+    </div>
+    <div>
+        <label for="select-choice-min" class="select">Sex:</label>
+        <select name="select-choice-min" id="select-choice-min" data-mini="true">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+    <div class="ui-field-contain">
+        <label for="weight">Weight:</label>
+        <input type="text" class="text" name="name" id="weight" value="" data-mini="true">
+        <label for="select-choice-min" class="select">Height:</label>
+        <select name="select-choice-min" id="height" data-mini="true">
+            <option value="54">4'6"</option>
+            <option value="55">4'7"</option>
+            <option value="56">4'8"</option>
+            <option value="57">4'9"</option>
+            <option value="58">4'10"</option>
+            <option value="59">4'11"</option>
+            <option value="60">5'0"</option>
+            <option value="61">5'1"</option>
+            <option value="62">5'2"</option>
+            <option value="63">5'3"</option>
+            <option value="64">5'4"</option>
+            <option value="65">5'5"</option>
+            <option value="66">5'6"</option>
+            <option value="67">5'7"</option>
+            <option value="68">5'8"</option>
+            <option value="69">5'9"</option>
+            <option value="70">5'10"</option>
+            <option value="71">5'11"</option>
+            <option value="72">6'0"</option>
+            <option value="73">6'1"</option>
+            <option value="74">6'2"</option>
+            <option value="75">6'3"</option>
+            <option value="76">6'4"</option>
+            <option value="77">6'5"</option>
+            <option value="78">6'6"</option>
+            <option value="79">6'7"</option>
+            <option value="80">6'8"</option>
+            <option value="81">6'9"</option>
+            <option value="82">6'10"</option>
+            <option value="83">6'11"</option>
+            <option value="84">7'0"</option>
+        </select>
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline" onclick="build()">Sign Up</a>
+    </div>
+    <div role="main" class="ui-content">
+        <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
+    </div>
+</div>
+<div data-role="page" id="page4">
+    <div class="text header" id="remainder">Total Amount Remaining Today:</div>
+    <div class="text header" id="goal">Total Daily Goal:</div>
+    <div class="text header" id="intake">Today's Total  Intake:</div>
+    <div class="text" id="water">Water:</div>
+    <div class="text" id="alcohol">Alcohol:</div>
+    <div class="text" id="excercise">Excercise:</div>
+    <div role="main" class="ui-content">
+        <a href="#addintakepage" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Add Intake</a>
+    </div>
+</div>
+<div data-role="page" id="addintakepage">
+    <div data-role="controlgroup" data-type="horizontal">
+        <a href="#" class="ui-btn ui-corner-all">Water
+            <label for="waterintake">Amount (oz):</label>
+            <input type="text" name="name" id="waterintake" value=""></a>
+        <a href="#" class="ui-btn ui-corner-all">Alcohol
+            <label for="alcoholintake">Amount (oz):</label>
+            <input type="text" name="name" id="alcoholintake" value=""></a>
+        <a href="#" class="ui-btn ui-corner-all">Excercise
+            <label for="excersiseintake">Amount (minutes):</label>
+            <input type="text" name="name" id="excersiseintake" value=""></a>
+    </div>
+    <input type="submit" value="Submit Button">
+</div>
 </body>
+</html>
 </html>
