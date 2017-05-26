@@ -23,6 +23,7 @@ function build() {
             $("#height").val());
         console.log(user1);
         users.push(user1);
+        console.log(user1.password);
         console.log(users[1].password)
     });
 }
