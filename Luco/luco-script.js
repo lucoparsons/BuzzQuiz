@@ -9,7 +9,7 @@ function User(name, pass, sex, weight, height) {
     this.weight = weight;
     this.height = height;
     this.bmiheight = this.height * this.height;
-    this.bmi = (this.weight / this.bmiheight) * 703
+    this.bmi = (this.weight / this.bmiheight) * 703;
 }
 
 function build() {
