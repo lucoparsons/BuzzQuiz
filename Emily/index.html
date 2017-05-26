@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="javascript.js"></script>
+    <script src="emily-script.js"></script>
     <script src="database.js"></script>
 </head>
 <body>
@@ -35,9 +35,11 @@
     <div role="main" class="ui-content">
         <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
     </div>
-    <div role="main" class="ui-content">
-        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign In</a>
-    </div>
+    <button onclick="signin()">Sign In</button>
+    <div id="output"></div>
+    <!--<div role="main" class="ui-content">-->
+    <!--<a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign In</a>-->
+    <!--</div>-->
 </div>
 <div data-role="page" id="page3">
     <div data-role="header">
@@ -124,7 +126,7 @@
             <label for="excersiseintake">Amount (minutes):</label>
             <input type="text" name="name" id="excersiseintake" value=""></a>
     </div>
-    <input type="submit" value="Submit Button">
+    <input type="submit" id="submit" value="Submit Button" onclick="addIntake()">
 </div>
 </body>
 </html>

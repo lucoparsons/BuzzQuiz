@@ -10,6 +10,7 @@ function User(name, pass, sex, weight, height) {
     this.height = height;
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703
+    this.water = 0;
 }
 
 function build() {
@@ -22,4 +23,10 @@ function build() {
             $("#height").val());
         console.log(user1);
     });
+}
+
+function addIntake(){
+    $("#waterintake").select({
+
+    })
 }
