@@ -20,10 +20,10 @@ function signin(){
     for(key in users){
         if(users[key].username == username){
             if(users[key].password== password){
-                window.location.assign("http://localhost:63342/BuzzQuiz/Master/index.html?_ijt=qccjpqa00bcvlr0220ftorhrhe#page4");
+                window.location.href = "#page4";
             }
             else{
-                document.getElementById("signinoutput").innerHTML = "Username and Password do not match :("
+                document.getElementById("output").innerHTML = "Username and Password do not match :("
             }
         }
         else{
