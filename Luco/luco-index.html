@@ -10,6 +10,7 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="luco-script.js"></script>
+    <script src="luco-database.js"></script>
 </head>
 <body>
 <div data-role="page" id="page1">
@@ -36,9 +37,8 @@
     <div role="main" class="ui-content">
         <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
     </div>
-    <div role="main" class="ui-content">
-        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign In</a>
-    </div>
+    <button onclick="signin()">Sign In</button>
+    <div id="output"></div>
 </div>
 <div data-role="page" id="page3">
     <div data-role="header">
@@ -105,6 +105,7 @@
 <div data-role="page" id="page4">
     <div data-role="header">
         <h1>Hydrate</h1>
+        <a href="#page1" data-icon="check" data-mini="true" class="ui-btn-right">Log Out</a>
     </div>
     <div class="text header" id="remainder">Total Amount Remaining Today:</div>
     <div class="text header" id="goal">Total Daily Goal:</div>
@@ -132,6 +133,9 @@
             <input type="text" name="name" id="excersiseintake" value=""></a>
     </div>
     <input type="submit" value="Submit Button">
+    <div role="main" class="ui-content">
+        <a href="#page4" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
+    </div>
 </div>
 </body>
 </html>
