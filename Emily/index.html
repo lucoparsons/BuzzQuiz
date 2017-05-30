@@ -94,16 +94,16 @@
         </select>
     </div>
     <div role="main" class="ui-content">
-        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Sign Up</a>
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline" onclick="build()">Sign Up</a>
     </div>
     <div role="main" class="ui-content">
         <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back</a>
     </div>
 </div>
 <div data-role="page" id="page4">
-    <div class="text header" id="remainder">Total Amount Remaining Today:</div>
+    <div class="text header" id="remainder" value="">Total Amount Remaining Today:</div>
     <div class="text header" id="goal">Total Daily Goal:</div>
-    <div class="text header" id="intake">Today's Total  Intake:</div>
+    <div class="text header" id="intake" value="">Today's Total  Intake:</div>
     <div class="text" id="water">Water:</div>
     <div class="text" id="alcohol">Alcohol:</div>
     <div class="text" id="excercise">Excercise:</div>
@@ -118,13 +118,13 @@
     <div data-role="controlgroup" data-type="horizontal">
         <a href="#" class="ui-btn ui-corner-all">Water
             <label for="waterintake">Amount (oz):</label>
-            <input type="text" name="name" id="waterintake" value=""></a>
+            <input type="text" name="name" id="waterintake" value="0"></a>
         <a href="#" class="ui-btn ui-corner-all">Alcohol
             <label for="alcoholintake">Amount (oz):</label>
-            <input type="text" name="name" id="alcoholintake" value=""></a>
+            <input type="text" name="name" id="alcoholintake" value="0"></a>
         <a href="#" class="ui-btn ui-corner-all">Excercise
             <label for="excersiseintake">Amount (minutes):</label>
-            <input type="text" name="name" id="excersiseintake" value=""></a>
+            <input type="text" name="name" id="excersiseintake" value="0"></a>
     </div>
     <input type="submit" id="submit" value="Submit Button" onclick="addIntake()">
     <div role="main" class="ui-content">

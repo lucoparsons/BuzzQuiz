@@ -3,6 +3,8 @@
  *  test push, working?
  */
 
+var user= {};
+
 function User(name, pass, sex, weight, height) {
     this.username = name;
     this.password = pass;
@@ -21,6 +23,7 @@ function signin(){
         if(users[key].username == username){
             if(users[key].password== password){
                 window.location.href = "#page4";
+                user = users[key];
             }
             else{
                 document.getElementById("output").innerHTML = "Username and Password do not match :("
@@ -32,8 +35,6 @@ function signin(){
     }
 }
 
-
-
 function build() {
     $(document).ready(function(){
         var user1 = new User(
@@ -42,6 +43,26 @@ function build() {
             $("#select-choice-min").val(),
             $("#weight").val(),
             $("#height").val());
-        console.log(user1);
+        user = user1;
     });
 }
+
+function addIntake(){
+    console.log(user);
+    var waterintake = document.getElementById("waterintake").value;
+    var alcoholintake = document.getElementById("alcoholintake").value;
+    var excersiseintake = document.getElementById("excersiseintake").value;
+    if(waterintake!=0){
+        user.water-=waterintake;
+    }
+    if(alcoholintake!=0){
+        user.water+=((alcoholintake/12)*6);
+    }
+    if(excersiseintake!=0){
+        user.water+=(excersiseintake*3);
+    }
+}
+
+$(document).ready(function(){
+    document.getElementById("remainder").innerHTML = user.water
+});

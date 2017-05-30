@@ -12,4 +12,14 @@ var users= {
         "bmi": "",
         "water": ""
     },
+    "user2": {
+        "username": "mattalby",
+        "password": "matt",
+        "sex": "male",
+        "weight": "250",
+        "height": "76",
+        "bmiheight": "",
+        "bmi": "",
+        "water": ""
+    },
 }
