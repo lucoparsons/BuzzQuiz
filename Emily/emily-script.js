@@ -38,25 +38,23 @@ function signin(){
 }
 
 function build() {
-    // $(document).ready(function(){
-    //     users["user"+(users.nextIndex-1)] = new User(
-    //         $("#username2").val(),
-    //         $("#password2").val(),
-    //         $("#select-choice-min").val(),
-    //         $("#weight").val(),
-    //         $("#height").val());
-    //     console.log(users["user"+users.nextIndex]);
-    // });
     var username = document.getElementById("username2").value;
     var password = document.getElementById("password2").value;
     var sex = document.getElementById("select-choice-min").value;
     var weight = document.getElementById("weight").value;
     var height = document.getElementById("height").value;
-    var newuser = new User(username, password, sex, weight, height);
-    users["user" + users.nextIndex] = newuser;
-    users.nextIndex++
-    console.log(users["user" + (users.nextIndex-1)])
-}
+    users["user" + users.nextIndex] = new User(username, password, sex, weight, height);
+    var person = users["user" + (users.nextIndex-1)];
+    if(person.sex=="female"){
+        person.water = (person.weight*.6)
+    }
+    if(person.sex=="male"){
+        person.water = (person.weight*.7)
+    }
+    console.log(person)
+    users.nextIndex++;
+    user = person;
+};
 
 function addIntake(){
     console.log(user);
