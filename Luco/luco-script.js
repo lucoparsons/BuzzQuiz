@@ -51,7 +51,6 @@ function signin(){
     var database = reload("userDatabase");
     console.log(database);
     for(key in database){
-        console.log(key);
         if(database[key].username == username){
             if(database[key].password == password){
                 window.location.assign("http://localhost:63342/BuzzQuiz/Luco/luco-index.html?_ijt=qccjpqa00bcvlr0220ftorhrhe#page4");
