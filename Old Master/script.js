@@ -2,6 +2,7 @@
  * Created by h205p2 on 5/18/17.
  *  test push, working?
  */
+var waterDrank = 0;
 
 function User(name, pass, sex, weight, height) {
     this.username = name;
@@ -12,6 +13,7 @@ function User(name, pass, sex, weight, height) {
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
     this.water = 0;
+    this.liquidLeft = this.weight * .6;
 }
 
 function signin(){
@@ -20,7 +22,7 @@ function signin(){
     for(key in users){
         if(users[key].username == username){
             if(users[key].password== password){
-                window.location.assign("http://localhost:63342/BuzzQuiz/Master/index.html?_ijt=qccjpqa00bcvlr0220ftorhrhe#page4");
+                window.location.assign("/index.html?_ijt=qccjpqa00bcvlr0220ftorhrhe#page4");
             }
             else{
                 document.getElementById("signinoutput").innerHTML = "Username and Password do not match :("
@@ -45,3 +47,12 @@ function build() {
         console.log(user1);
     });
 }
+
+build();
+
+function drinkWater() {
+    waterDrank = waterDrank + document.getElementById("waterintake").value;
+    document.getElementById("water").innerHTML= "";
+    document.getElementById("water").innerHTML = "Water: " + waterDrank;
+}
+

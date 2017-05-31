@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="../Emily/emily-script.js"></script>
-    <script src="database.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 <div data-role="page" id="page1">
@@ -118,7 +117,7 @@
     <div data-role="controlgroup" data-type="horizontal">
         <a href="#" class="ui-btn ui-corner-all">Water
             <label for="waterintake">Amount (oz):</label>
-            <input type="text" name="name" id="waterintake" value=""></a>
+            <input type="text" name="name" id="waterintake" value="" onclick="drinkWater()"></a>
         <a href="#" class="ui-btn ui-corner-all">Alcohol
             <label for="alcoholintake">Amount (oz):</label>
             <input type="text" name="name" id="alcoholintake" value=""></a>
@@ -126,7 +125,10 @@
             <label for="excersiseintake">Amount (minutes):</label>
             <input type="text" name="name" id="excersiseintake" value=""></a>
     </div>
-    <input type="submit" id="submit" value="Submit Button" onclick="addIntake()">
+    <div role="main" class="ui-content">
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline" onclick="drinkWater()">Drink Water</a>
+    <input type="submit" value="Drink Alcohol!" onclick="drinkAlcohol()" data-inline="true">
+    <input type="submit" value="Excercise!" onclick="excercise()" data-inline="true" >
 </div>
 </body>
 </html>
