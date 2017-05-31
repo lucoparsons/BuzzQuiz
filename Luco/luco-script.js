@@ -1,6 +1,7 @@
 /**
  * Created by h205p2 on 5/18/17.
  */
+var person;
 
 function User(name, pass, sex, weight, height) {
     this.username = name;
@@ -39,6 +40,8 @@ function build() {
         console.log(users[1].password);
         download(users, "userDatabase");
         reload("userDatabase");
+        person = user1;
+        console.log(person);
     });
 
 }
@@ -53,7 +56,9 @@ function signin(){
     for(key in database){
         if(database[key].username == username){
             if(database[key].password == password){
-                window.location.assign("http://localhost:63342/BuzzQuiz/Luco/luco-index.html?_ijt=qccjpqa00bcvlr0220ftorhrhe#page4");
+                window.location.href = "#page4";
+                person = database[key];
+                console.log(person);
             }
             else{
                 document.getElementById("output").innerHTML = "Username and Password do not match :("
@@ -64,3 +69,24 @@ function signin(){
         }
     }
 }
+
+function logOut() {
+        person = "";
+    console.log(person);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
