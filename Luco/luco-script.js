@@ -13,6 +13,18 @@ function User(name, pass, sex, weight, height) {
     this.water = 0;
 }
 
+function download(array, name) {
+    var json = JSON.stringify(array);
+    localStorage.setItem(name, json);
+}
+
+function reload(name) {
+    var text = localStorage.getItem(name);
+    var obj = JSON.parse(text);
+    console.log(obj);
+    return obj;
+}
+
 function build() {
     $(document).ready(function(){
         var user1 = new User(
@@ -24,20 +36,27 @@ function build() {
         console.log(user1);
         users.push(user1);
         console.log(user1.password);
-        console.log(users[1].password)
+        console.log(users[1].password);
+        download(users, "userDatabase");
+        reload("userDatabase");
     });
+
 }
+console.log(JSON.parse(localStorage.getItem("userDatabase")));
+console.log(JSON.parse(localStorage.getItem("userDatabase"))[0].username);
 
 function signin(){
     var username = document.getElementById("username1").value;
     var password = document.getElementById("password1").value;
-    for(key in users){
-        if(users[key].username == username){
-            if(users[key].password== password){
+    var database = reload("userDatabase");
+    console.log(database);
+    for(key in database){
+        if(database[key].username == username){
+            if(database[key].password == password){
                 window.location.assign("http://localhost:63342/BuzzQuiz/Luco/luco-index.html?_ijt=qccjpqa00bcvlr0220ftorhrhe#page4");
             }
             else{
-                document.getElementById("signinoutput").innerHTML = "Username and Password do not match :("
+                document.getElementById("output").innerHTML = "Username and Password do not match :("
             }
         }
         else{
