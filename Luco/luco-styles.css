@@ -19,3 +19,8 @@ h1 {
     color: deepskyblue;
     background-color: black;
 }
+
+#Logo {
+    width: 90%;
+    padding-left: 5%;
+}
