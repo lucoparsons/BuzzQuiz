@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>listview demo</title>
+    <title>Hydrate</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -117,7 +117,7 @@
     <div data-role="controlgroup" data-type="horizontal">
         <a href="#" class="ui-btn ui-corner-all">Water
             <label for="waterintake">Amount (oz):</label>
-            <input type="text" name="name" id="waterintake" value="" onclick="drinkWater()"></a>
+            <input type="text" name="name" id="waterintake" value=""></a>
         <a href="#" class="ui-btn ui-corner-all">Alcohol
             <label for="alcoholintake">Amount (oz):</label>
             <input type="text" name="name" id="alcoholintake" value=""></a>
@@ -126,9 +126,8 @@
             <input type="text" name="name" id="excersiseintake" value=""></a>
     </div>
     <div role="main" class="ui-content">
-        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline" onclick="drinkWater()">Drink Water</a>
-    <input type="submit" value="Drink Alcohol!" onclick="drinkAlcohol()" data-inline="true">
-    <input type="submit" value="Excercise!" onclick="excercise()" data-inline="true" >
+        <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline" onclick="drink()">Add It!</a>
+
 </div>
 </body>
 </html>
