@@ -5,6 +5,7 @@ var alcoholDrank = 0;
 var alcoholTotal = 0;
 var excerciseDo = 0;
 var excerciseTotal = 0;
+var liquidLeft = 0;
 
 function User(name, pass, sex, weight, height) {
     this.username = name;
@@ -15,6 +16,14 @@ function User(name, pass, sex, weight, height) {
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
     this.water = 0;
+
+    if (this.sex == "male") {
+        liquidLeft = this.weight * 0.7;
+        document.getElementById("remainder").innerHTML= liquidleft + "ounces";
+    } else {
+        liquidLeft = this.weight * 0.6;
+        document.getElementById("remainder").innerHTML= liquidleft + "ounces"
+    }
 }
 
 function download(array, name) {
@@ -99,4 +108,8 @@ function drink() {
     document.getElementById("excercise").innerHTML= "";
     document.getElementById("excercise").innerHTML = "Excercise: " + excerciseTotal;
     document.getElementById("excerciseintake").value = "";
+}
+
+function logger() {
+    document.getElementById("remainder").innerHTML= liquidleft +
 }
