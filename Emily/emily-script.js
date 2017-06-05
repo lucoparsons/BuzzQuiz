@@ -37,6 +37,19 @@ function signin(){
     }
 }
 
+function download(array, name) {
+    var json = JSON.stringify(array);
+    localStorage.setItem(name, json);
+}
+
+function reload(name) {
+    var text = localStorage.getItem(name);
+    var obj = JSON.parse(text);
+    console.log(obj);
+    return obj;
+}
+
+
 function build() {
     var username = document.getElementById("username2").value;
     var password = document.getElementById("password2").value;
@@ -54,6 +67,8 @@ function build() {
     console.log(person)
     users.nextIndex++;
     user = person;
+    download(users, "userDatabase");
+    reload("userDatabase");
 };
 
 function addIntake(){
