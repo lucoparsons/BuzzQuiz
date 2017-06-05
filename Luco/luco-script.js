@@ -18,7 +18,7 @@ function User(name, pass, sex, weight, height) {
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
     this.water = 0;
-    this.calcWater = function() {
+    this.calculateWater = function() {
         if (this.sex == "female") {
             this.water = (person.weight*.6)
         }
