@@ -1,9 +1,11 @@
+var person;
 var waterDrank = 0;
 var waterTotal = 0;
 var alcoholDrank = 0;
 var alcoholTotal = 0;
 var excerciseDo = 0;
 var excerciseTotal = 0;
+var liquidLeft = 0;
 
 function User(name, pass, sex, weight, height) {
     this.username = name;
@@ -14,7 +16,14 @@ function User(name, pass, sex, weight, height) {
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
     this.water = 0;
-    this.liquidLeft = this.weight * .6;
+
+    if (this.sex == "male") {
+        liquidLeft = this.weight * 0.7;
+        document.getElementById("remainder").innerHTML= liquidleft + "ounces";
+    } else {
+        liquidLeft = this.weight * 0.6;
+        document.getElementById("remainder").innerHTML= liquidleft + "ounces"
+    }
 }
 
 function download(array, name) {
@@ -24,32 +33,35 @@ function download(array, name) {
 
 function reload(name) {
     var text = localStorage.getItem(name);
-    var obj = JSON.parse(text);
-    console.log(obj);
-    return obj;
+    var arr = JSON.parse(text);
+    console.log(arr);
+    return arr;
 }
 
 function build() {
-    $(document).ready(function(){
-        var user1 = new User(
-            $("#username2").val(),
-            $("#password2").val(),
-            $("#select-choice-min").val(),
-            $("#weight").val(),
-            $("#height").val());
-        console.log(user1);
-        users.push(user1);
-        console.log(user1.password);
-        console.log(users[1].password);
-        download(users, "userDatabase");
-        reload("userDatabase");
-        person = user1;
-        console.log(person);
-    });
+    var allUsers = reload("userDatabase");
+    console.log(allUsers);
+    if (allUsers == null) {
+        allUsers = [users[0]];
+        //allUsers.push(users[0])
+    }
+    var user = document.getElementById("username2").value;
+    var pass = document.getElementById("password2").value;
+    var sex = document.getElementById("select-choice-min").value;
+    var weight = document.getElementById("weight").value;
+    var height = document.getElementById("height").value;
+    allUsers.push(new User(user, pass, sex, weight, height));
+    person = allUsers[allUsers.length - 1];
+    console.log(person);
+    download(allUsers, "userDatabase");
+    //reload("userDatabase");
+    console.log(person);
+    //console.log(users);
+    console.log(JSON.parse(localStorage.getItem("userDatabase")));
 
 }
-console.log(JSON.parse(localStorage.getItem("userDatabase")));
-console.log(JSON.parse(localStorage.getItem("userDatabase"))[0].username);
+//console.log(JSON.parse(localStorage.getItem("userDatabase")));
+//console.log(JSON.parse(localStorage.getItem("userDatabase"))[0].username);
 
 function signin(){
     var username = document.getElementById("username1").value;
@@ -77,17 +89,18 @@ function logOut() {
     person = "";
     console.log(person);
 }
+
 function drink() {
     waterDrank = document.getElementById("waterintake").value;
     var waterDrink = Number(waterDrank);
     waterTotal += waterDrink;
     document.getElementById("water").innerHTML= "";
-    document.getElementById("water").innerHTML = "Water: " + waterTotal;
+    document.getElementById("water").innerHTML = "Water: " + waterTotal + " ounces.";
     alcoholDrank = document.getElementById("alcoholintake").value;
     var alcoholDrink = Number(alcoholDrank);
     alcoholTotal += alcoholDrink;
     document.getElementById("alcohol").innerHTML= "";
-    document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholTotal;
+    document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholTotal + " ounces.";
     document.getElementById("alcoholintake").value = "";
     excerciseDone = document.getElementById("excerciseintake").value;
     excerciseDo = Number(excerciseDone);
@@ -95,4 +108,8 @@ function drink() {
     document.getElementById("excercise").innerHTML= "";
     document.getElementById("excercise").innerHTML = "Excercise: " + excerciseTotal;
     document.getElementById("excerciseintake").value = "";
+}
+
+function logger() {
+    document.getElementById("remainder").innerHTML= liquidleft +
 }
