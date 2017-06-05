@@ -108,7 +108,13 @@
         <h1>Hydrate</h1>
         <a href="#page1" data-icon="check" data-mini="true" class="ui-btn-right" onclick="logOut()">Log Out</a>
     </div>
-    <div class="text header" id="remainder">Total Amount Remaining Today:</div>
+    <div data-role="controlgroup" id="remainder">
+        <a href="#" class="ui-btn ui-corner-all">Water Left Today:
+            <label for="remainder">0 oz</label>
+        </a>
+
+    </div>
+
     <div class="text header" id="goal">Total Daily Goal:</div>
     <div class="text header" id="intake">Today's Total  Intake:</div>
     <div class="text" id="water">Water:</div>

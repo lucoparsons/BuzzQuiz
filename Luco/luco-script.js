@@ -18,6 +18,14 @@ function User(name, pass, sex, weight, height) {
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
     this.water = 0;
+    this.calcWater = function() {
+        if (this.sex == "female") {
+            this.water = (person.weight*.6)
+        }
+        if (this.sex == "male") {
+            this.water = (person.weight*.7)
+        }
+    }
 }
 
 function download(array, name) {
@@ -47,10 +55,8 @@ function build() {
         allUsers.push(new User(user, pass, sex, weight, height));
         person = allUsers[allUsers.length - 1];
         console.log(person);
-        download(allUsers, "userDatabase");
-        //reload("userDatabase");
+         download(allUsers, "userDatabase");
         console.log(person);
-    //console.log(users);
     console.log(JSON.parse(localStorage.getItem("userDatabase")));
 
 }
