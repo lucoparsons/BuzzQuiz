@@ -24,7 +24,8 @@ function User(name, pass, sex, weight, height) {
         if (this.sex == "male") {
             return person.weight*.7;
         }
-    }
+    };
+    this.remainder = this.water
 }
 
 function download(array, name) {
@@ -85,7 +86,8 @@ function signin(){
 }
 
 function onLogin() {
-    document.getElementById("remainderLabel").innerHTML = Math.round(person.water()) + " oz";
+    document.getElementById("goalLabel").innerHTML = Math.round(person.water()) + " oz";
+    document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder()) + " oz";
 }
 
 function logOut() {
@@ -118,12 +120,14 @@ function drink() {
     var alcoholintake = document.getElementById("alcoholintake").value;
     var excersiseintake = document.getElementById("excersiseintake").value;
     if(waterintake!=0){
-        person.water-=waterintake;
+        person.remainder-=waterintake;
+        document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
     }
     if(alcoholintake!=0){
-        person.water+=((alcoholintake/12)*6);
+        person.remainder+=((alcoholintake/12)*6);
     }
     if(excersiseintake!=0){
-        person.water+=(excersiseintake*3);
+        person.remainder+=(excersiseintake*3);
     }
+    document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder()) + " oz";
 }
