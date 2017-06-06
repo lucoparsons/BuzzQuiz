@@ -87,6 +87,7 @@ function addIntake(){
     }
 }
 
-$(document).ready(function(){
-    document.getElementById("remainder").innerHTML = user.water
-});
+//
+// $(document).ready(function(){
+//     document.getElementById("remainder").innerHTML = user.water
+// });

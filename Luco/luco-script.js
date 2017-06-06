@@ -17,15 +17,13 @@ function User(name, pass, sex, weight, height) {
     this.height = height;
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
-    this.water = 0;
-    this.calcWater = function() {
+    this.water = function() {
         if (this.sex == "female") {
-            this.water = (person.weight*.6)
+            return person.weight*.6;
         }
         if (this.sex == "male") {
-            this.water = (person.weight*.7)
+            return person.weight*.7;
         }
-        return this.water;
     }
 }
 
@@ -87,7 +85,7 @@ function signin(){
 }
 
 function onLogin() {
-    document.getElementById("remainderLabel").innerHTML = Math.round(person.calcWater()) + " oz";
+    document.getElementById("remainderLabel").innerHTML = Math.round(person.water()) + " oz";
 }
 
 function logOut() {
@@ -96,23 +94,36 @@ function logOut() {
 }
 
 function drink() {
-    waterDrank = document.getElementById("waterintake").value;
-    var waterDrink = Number(waterDrank);
-    waterTotal += waterDrink;
-    document.getElementById("water").innerHTML= "";
-    document.getElementById("water").innerHTML = "Water: " + waterTotal + " oz";
-    alcoholDrank = document.getElementById("alcoholintake").value;
-    var alcoholDrink = Number(alcoholDrank);
-    alcoholTotal += alcoholDrink;
-    document.getElementById("alcohol").innerHTML= "";
-    document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholTotal + " oz";
-    document.getElementById("alcoholintake").value = "";
-    excerciseDone = document.getElementById("excerciseintake").value;
-    excerciseDo = Number(excerciseDone);
-    excerciseTotal += excerciseDo;
-    document.getElementById("excercise").innerHTML= "";
-    document.getElementById("excercise").innerHTML = "Excercise: " + excerciseTotal;
-    document.getElementById("excerciseintake").value = "";
-    var totalIntake = waterDrink + alcoholDrink;
-    document.getElementById("intake").innerHTML = "Today's Total Intake: " + totalIntake + " oz"
+    // waterDrank = document.getElementById("waterintake").value;
+    // var waterDrink = Number(waterDrank);
+    // waterTotal += waterDrink;
+    // document.getElementById("water").innerHTML= "";
+    // document.getElementById("water").innerHTML = "Water: " + waterTotal + " oz";
+    // alcoholDrank = document.getElementById("alcoholintake").value;
+    // var alcoholDrink = Number(alcoholDrank);
+    // alcoholTotal += alcoholDrink;
+    // document.getElementById("alcohol").innerHTML= "";
+    // document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholTotal + " oz";
+    // document.getElementById("alcoholintake").value = "";
+    // excerciseDone = document.getElementById("excerciseintake").value;
+    // excerciseDo = Number(excerciseDone);
+    // excerciseTotal += excerciseDo;
+    // document.getElementById("excercise").innerHTML= "";
+    // document.getElementById("excercise").innerHTML = "Excercise: " + excerciseTotal;
+    // document.getElementById("excerciseintake").value = "";
+    // var totalIntake = waterDrink + alcoholDrink;
+    // document.getElementById("intake").innerHTML = "Today's Total Intake: " + totalIntake + " oz"
+
+    var waterintake = document.getElementById("waterintake").value;
+    var alcoholintake = document.getElementById("alcoholintake").value;
+    var excersiseintake = document.getElementById("excersiseintake").value;
+    if(waterintake!=0){
+        person.water-=waterintake;
+    }
+    if(alcoholintake!=0){
+        person.water+=((alcoholintake/12)*6);
+    }
+    if(excersiseintake!=0){
+        person.water+=(excersiseintake*3);
+    }
 }
