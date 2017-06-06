@@ -18,13 +18,14 @@ function User(name, pass, sex, weight, height) {
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
     this.water = 0;
-    this.calculateWater = function() {
+    this.calcWater = function() {
         if (this.sex == "female") {
             this.water = (person.weight*.6)
         }
         if (this.sex == "male") {
             this.water = (person.weight*.7)
         }
+        return this.water;
     }
 }
 
@@ -41,7 +42,7 @@ function reload(name) {
 }
 
 function build() {
-    var allUsers = reload("userDatabase");
+    allUsers = reload("userDatabase");
     console.log(allUsers);
     if (allUsers == null) {
         allUsers = [users[0]];
@@ -52,13 +53,12 @@ function build() {
     var sex = document.getElementById("select-choice-min").value;
     var weight = document.getElementById("weight").value;
     var height = document.getElementById("height").value;
-        allUsers.push(new User(user, pass, sex, weight, height));
-        person = allUsers[allUsers.length - 1];
-        console.log(person);
-         download(allUsers, "userDatabase");
-        console.log(person);
+    allUsers.push(new User(user, pass, sex, weight, height));
+    person = allUsers[allUsers.length - 1];
+    onLogin();
+    download(allUsers, "userDatabase");
+    console.log(person);
     console.log(JSON.parse(localStorage.getItem("userDatabase")));
-
 }
 //console.log(JSON.parse(localStorage.getItem("userDatabase")));
 //console.log(JSON.parse(localStorage.getItem("userDatabase"))[0].username);
@@ -73,6 +73,7 @@ function signin(){
             if(database[key].password == password){
                 window.location.href = "#page4";
                 person = database[key];
+                onLogin();
                 console.log(person);
             }
             else{
@@ -85,6 +86,10 @@ function signin(){
     }
 }
 
+function onLogin() {
+    document.getElementById("remainderLabel").innerHTML = Math.round(person.calcWater()) + " oz";
+}
+
 function logOut() {
         person = "";
     console.log(person);
@@ -94,11 +99,13 @@ function drink() {
     waterDrank = document.getElementById("waterintake").value;
     var waterDrink = Number(waterDrank);
     waterTotal += waterDrink;
-    document.getElementById("water").innerHTML = "Water: " + waterTotal;
+    document.getElementById("water").innerHTML= "";
+    document.getElementById("water").innerHTML = "Water: " + waterTotal + " oz";
     alcoholDrank = document.getElementById("alcoholintake").value;
     var alcoholDrink = Number(alcoholDrank);
     alcoholTotal += alcoholDrink;
-    document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholTotal;
+    document.getElementById("alcohol").innerHTML= "";
+    document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholTotal + " oz";
     document.getElementById("alcoholintake").value = "";
     excerciseDone = document.getElementById("excerciseintake").value;
     excerciseDo = Number(excerciseDone);
@@ -106,18 +113,6 @@ function drink() {
     document.getElementById("excercise").innerHTML= "";
     document.getElementById("excercise").innerHTML = "Excercise: " + excerciseTotal;
     document.getElementById("excerciseintake").value = "";
+    var totalIntake = waterDrink + alcoholDrink;
+    document.getElementById("intake").innerHTML = "Today's Total Intake: " + totalIntake + " oz"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
