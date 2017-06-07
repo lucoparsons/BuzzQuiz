@@ -17,15 +17,19 @@ function User(name, pass, sex, weight, height) {
     this.height = height;
     this.bmiheight = this.height * this.height;
     this.bmi = (this.weight / this.bmiheight) * 703;
-    this.water = function() {
-        if (this.sex == "female") {
-            return person.weight*.6;
-        }
-        if (this.sex == "male") {
-            return person.weight*.7;
-        }
-    };
-    this.remainder = this.water
+    this.water = 0;
+    this.remainder = 0;
+    this.calcWater = function() {
+         if (this.sex == "female") {
+             this.water = this.weight*.6;
+             this.remainder = this.weight*.6;
+         }
+         if (this.sex == "male") {
+             this.water = this.weight*.7;
+             this.remainder = this.weight*.7;
+         }
+     };
+
 }
 
 function download(array, name) {
@@ -72,8 +76,8 @@ function signin(){
             if(database[key].password == password){
                 window.location.href = "#page4";
                 person = database[key];
-                onLogin();
                 console.log(person);
+                onLogin();
             }
             else{
                 document.getElementById("output").innerHTML = "Username and Password do not match :("
@@ -86,13 +90,42 @@ function signin(){
 }
 
 function onLogin() {
-    document.getElementById("goalLabel").innerHTML = Math.round(person.water()) + " oz";
-    document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder()) + " oz";
+    // person.calcWater();
+    // document.getElementById("goalLabel").innerHTML = Math.round(person.water) + " oz";
+    // document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
+             if (person.sex == "female") {
+                 person.water = person.weight*.6;
+                     person.remainder = person.weight*.6;
+             }
+             if (person.sex == "male") {
+                 person.water = person.weight*.7;
+                 person.remainder = person.weight*.7;
+             }
+
+    document.getElementById("goalLabel").innerHTML = Math.round(person.water) + " oz";
+    document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
 }
 
 function logOut() {
-        person = "";
-    console.log(person);
+    $("#goalLabel").empty();
+    $("#remainderLabel").empty();
+
+    var username = person.username;
+    var password = person.password;
+    var database = reload("userDatabase");
+    console.log(database);
+    //console.log(allUsers);
+    for(key in database){
+        if((database[key].username == username) && (database[key].password == password)) {
+            console.log(database[key])
+            database[key] = person;
+            console.log(database[key])
+            download(database, "userDatabase");
+            person = "";
+            console.log(person);
+        }
+    }
+
 }
 
 function drink() {
@@ -118,10 +151,11 @@ function drink() {
 
     var waterintake = document.getElementById("waterintake").value;
     var alcoholintake = document.getElementById("alcoholintake").value;
-    var excersiseintake = document.getElementById("excersiseintake").value;
+    var excersiseintake = document.getElementById("excerciseintake").value;
     if(waterintake!=0){
         person.remainder-=waterintake;
-        document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
+        //document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
+        console.log(person.remainder);
     }
     if(alcoholintake!=0){
         person.remainder+=((alcoholintake/12)*6);
@@ -129,5 +163,5 @@ function drink() {
     if(excersiseintake!=0){
         person.remainder+=(excersiseintake*3);
     }
-    document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder()) + " oz";
+    document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
 }
