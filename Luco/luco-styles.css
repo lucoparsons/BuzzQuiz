@@ -1,26 +1,27 @@
 h1 {
     font-family: "Times";
-    font-size: 600%;
-    color: deepskyblue;
-    background-color: black;
+    /*font-size: 600%;*/
+    /*color: deepskyblue;*/
+    /*background-color: black;*/
 }
 
- .ui-field-contain {
-    color: deepskyblue;
-    background-color: black;
-}
+/*.ui-field-contain {*/
+    /*color: deepskyblue;*/
+    /*background-color: black;*/
+/*}*/
 
- .ui-content {
-     color: deepskyblue;
-     background-color: black;
- }
+ /*.ui-content {*/
+     /*color: deepskyblue;*/
+     /*background-color: black;*/
+ /*}*/
 
-.select {
-    color: deepskyblue;
-    background-color: black;
-}
+/*.select {*/
+    /*color: deepskyblue;*/
+    /*background-color: black;*/
+/*}*/
 
 #Logo {
     width: 90%;
     padding-left: 5%;
+    padding-top: 5%;
 }

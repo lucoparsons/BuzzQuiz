@@ -133,7 +133,7 @@ function logOut() {
     for(key in database){
         if((database[key].username == username) && (database[key].password == password)) {
             console.log(database[key]);
-            person.day = new Date().toDateString();
+            person.date = new Date().toDateString();
             database[key] = person;
             console.log(database[key]);
             download(database, "userDatabase");
@@ -172,7 +172,7 @@ function drink() {
     var alcoholintake = Number(document.getElementById("alcoholintake").value);
     var exerciseintake = Number(document.getElementById("exerciseintake").value);
     if(waterintake!=0){
-        waterDrank += waterintake;
+        waterDrank+=waterintake;
         person.remainder-=waterintake;
         //document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
         console.log(person.remainder);
@@ -180,12 +180,12 @@ function drink() {
     }
     if(alcoholintake!=0){
         person.remainder+=((alcoholintake/12)*6);
-        alcoholDrank += alcoholintake;
+        alcoholDrank+=alcoholintake;
         document.getElementById("alcohol").innerHTML = "Alcohol: " + alcoholDrank + " oz"
     }
     if(exerciseintake!=0){
         person.remainder+=(exerciseintake*3);
-        exerciseDo += exerciseintake;
+        exerciseDo+=exerciseintake;
         document.getElementById("exercise").innerHTML = "Exercise: " + exerciseDo + " mins"
     }
     document.getElementById("remainderLabel").innerHTML = Math.round(person.remainder) + " oz";
